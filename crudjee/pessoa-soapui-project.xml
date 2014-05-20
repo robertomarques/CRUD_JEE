@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="pessoa" soapui-version="5.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="PessoaServiceServiceSoapBinding" type="wsdl" bindingName="{http://services.crudjee.robertomarques.github.com/}PessoaServiceServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/crudjee/services/pessoa?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/crudjee/services/pessoa?wsdl"><con:part><con:url>http://localhost:8080/crudjee/services/pessoa?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="PessoaServiceService" targetNamespace="http://services.crudjee.robertomarques.github.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.crudjee.robertomarques.github.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://services.crudjee.robertomarques.github.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="editar" type="tns:editar"/>
+      <xs:element name="editarResponse" type="tns:editarResponse"/>
+      <xs:element name="excluir" type="tns:excluir"/>
+      <xs:element name="excluirResponse" type="tns:excluirResponse"/>
+      <xs:element name="incluir" type="tns:incluir"/>
+      <xs:element name="incluirResponse" type="tns:incluirResponse"/>
+      <xs:element name="listar" type="tns:listar"/>
+      <xs:element name="listarResponse" type="tns:listarResponse"/>
+      <xs:complexType name="editar">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pessoa" type="tns:pessoa"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pessoa">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="editarResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listar">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="listarResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="pessoa" type="tns:pessoa"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="incluir">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="incluirResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="excluir">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="excluirResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="excluir">
+    <wsdl:part element="tns:excluir" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editarResponse">
+    <wsdl:part element="tns:editarResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="editar">
+    <wsdl:part element="tns:editar" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarResponse">
+    <wsdl:part element="tns:listarResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="incluir">
+    <wsdl:part element="tns:incluir" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="excluirResponse">
+    <wsdl:part element="tns:excluirResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="incluirResponse">
+    <wsdl:part element="tns:incluirResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listar">
+    <wsdl:part element="tns:listar" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PessoaService">
+    <wsdl:operation name="editar">
+      <wsdl:input message="tns:editar" name="editar"></wsdl:input>
+      <wsdl:output message="tns:editarResponse" name="editarResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <wsdl:input message="tns:listar" name="listar"></wsdl:input>
+      <wsdl:output message="tns:listarResponse" name="listarResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluir">
+      <wsdl:input message="tns:incluir" name="incluir"></wsdl:input>
+      <wsdl:output message="tns:incluirResponse" name="incluirResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluir">
+      <wsdl:input message="tns:excluir" name="excluir"></wsdl:input>
+      <wsdl:output message="tns:excluirResponse" name="excluirResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PessoaServiceServiceSoapBinding" type="tns:PessoaService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="editar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="editar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="editarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluir">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="incluir">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="incluirResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluir">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="excluir">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="excluirResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PessoaServiceService">
+    <wsdl:port binding="tns:PessoaServiceServiceSoapBinding" name="PessoaServicePort">
+      <soap:address location="http://localhost:8080/crudjee/services/pessoa"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/crudjee/services/pessoa</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="editar" bindingOperationName="editar" type="Request-Response" outputName="editarResponse" inputName="editar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/crudjee/services/pessoa</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.crudjee.robertomarques.github.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:editar>
+         <!--Optional:-->
+         <pessoa>
+            <!--Optional:-->
+            <id>2</id>
+            <!--Optional:-->
+            <nome>joao</nome>
+         </pessoa>
+      </ser:editar>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.crudjee.robertomarques.github.com/PessoaService/editar"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="excluir" bindingOperationName="excluir" type="Request-Response" outputName="excluirResponse" inputName="excluir" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/crudjee/services/pessoa</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.crudjee.robertomarques.github.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:excluir>
+         <!--Optional:-->
+         <id>1</id>
+      </ser:excluir>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.crudjee.robertomarques.github.com/PessoaService/excluir"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="incluir" bindingOperationName="incluir" type="Request-Response" outputName="incluirResponse" inputName="incluir" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/crudjee/services/pessoa</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.crudjee.robertomarques.github.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:incluir>
+         <!--Optional:-->
+         <nome>Roberto3</nome>
+      </ser:incluir>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.crudjee.robertomarques.github.com/PessoaService/incluir"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="listar" bindingOperationName="listar" type="Request-Response" outputName="listarResponse" inputName="listar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/crudjee/services/pessoa</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.crudjee.robertomarques.github.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:listar/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.crudjee.robertomarques.github.com/PessoaService/listar"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

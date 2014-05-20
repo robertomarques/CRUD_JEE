@@ -1,0 +1,43 @@
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	template="template.xhtml" >
+ 
+ <ui:define name="content">
+	<h:form>
+		<h:dataTable class="table" value="#{gerenciarPessoa.pessoas}" var="pessoa" border="1" width="200">
+			<f:facet name="header">
+				<h:outputText value="Pessoas" />
+			</f:facet>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Id" />
+				</f:facet>
+				<h:outputText value="#{pessoa.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome" />
+				</f:facet>
+				<h:outputText value="#{pessoa.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Ações" />
+				</f:facet>
+				<h:commandButton value="Excluir" action="#{gerenciarPessoa.excluir}">
+					<f:setPropertyActionListener target="#{gerenciarPessoa.pessoa}"
+						value="#{pessoa}" />
+				</h:commandButton>
+				<h:commandButton value="Editar" action="#{gerenciarPessoa.editar}">
+					<f:setPropertyActionListener target="#{gerenciarPessoa.pessoa}"
+						value="#{pessoa}" />
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+		<h:commandButton class="btn" value="Incluir" action="#{gerenciarPessoa.incluir}"  />		
+	</h:form>
+</ui:define>
+</ui:composition>

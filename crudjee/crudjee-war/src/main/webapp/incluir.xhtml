@@ -1,0 +1,21 @@
+<ui:composition
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	template="template.xhtml" >
+ 
+
+<ui:define name="content">
+
+	<h:form>		
+    <h:panelGrid columns="2">
+       <h:outputLabel value="Nome" for="nome" />
+       <h:inputText class="input-small" value="#{gerenciarPessoa.pessoa.nome}" id="nome" />
+       <h:commandButton class="btn" value="Incluir"  action="#{gerenciarPessoa.confirmarInclusao}"/>
+    </h:panelGrid>      
+	</h:form>
+
+</ui:define>
+
+	</ui:composition>
